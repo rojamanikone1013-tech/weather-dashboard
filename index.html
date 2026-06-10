@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Weather Dashboard</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+</head>
+<body id="body" class="bg-slate-950 text-white min-h-screen p-5 transition-all duration-300">
+    <div class="max-w-7xl mx-auto">
+
+    <!-- Header -->
+    <div class="text-center mb-10">
+    <h1 id="dashboardTitle"
+        class="text-5xl font-bold mb-2 text-white">
+        🌦 Weather Dashboard
+    </h1>
+
+    <p id="subtitle" class="text-slate-400">
+        Real Time Weather Application
+    </p>
+</div>
+
+    <!-- Search -->
+    <div class="flex flex-col md:flex-row gap-4 mb-8">
+        <input
+            type="text"
+            id="city"
+            placeholder="Enter city name"
+            class="flex-1 bg-slate-900 border border-slate-700 rounded-xl px-5 py-4 outline-none"
+        >
+
+        <button
+            onclick="getWeather()"
+            class="bg-blue-600 hover:bg-blue-700 px-8 py-4 rounded-xl font-semibold"
+        >
+            Search
+        </button>
+    </div>
+    <div class="flex justify-center mt-4">
+    <button
+    onclick="toggleTheme()"
+    class="fixed top-5 right-5 bg-slate-800 text-white px-4 py-2 rounded-full shadow-lg"
+>
+    <i class="fa-solid fa-moon"></i>
+</button>
+</div>
+
+    <!-- Main Section -->
+    <div class="grid lg:grid-cols-3 gap-5">
+
+        <!-- Main Weather Card -->
+       <div id="mainCard"
+class="bg-slate-900 text-white rounded-3xl p-8 border border-slate-800">
+</div>
+
+        <!-- Details -->
+        <div class="lg:col-span-2">
+
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-5">
+
+        <!-- Humidity -->
+        <div class="bg-slate-900 text-white p-5 rounded-2xl">
+            <p class="text-slate-400">
+                <i class="fa-solid fa-droplet text-blue-400 mr-2"></i>
+                Humidity
+            </p>
+            <h2 id="humidity" class="text-2xl font-bold mt-2">--</h2>
+        </div>
+
+        <!-- Wind -->
+        <div class="bg-slate-900 text-white p-5 rounded-2xl">
+            <p class="text-slate-400">
+                <i class="fa-solid fa-wind text-cyan-400 mr-2"></i>
+                Wind
+            </p>
+            <h2 id="wind" class="text-2xl font-bold mt-2">--</h2>
+        </div>
+
+        <!-- Pressure -->
+        <div class="bg-slate-900 text-white p-5 rounded-2xl">
+            <p class="text-slate-400">
+                <i class="fa-solid fa-gauge-high text-green-400 mr-2"></i>
+                Pressure
+            </p>
+            <h2 id="pressure" class="text-2xl font-bold mt-2">--</h2>
+        </div>
+
+        <!-- Visibility -->
+        <div class="bg-slate-900 text-white p-5 rounded-2xl">
+            <p class="text-slate-400">
+                <i class="fa-solid fa-eye text-purple-400 mr-2"></i>
+                Visibility
+            </p>
+            <h2 id="visibility" class="text-2xl font-bold mt-2">--</h2>
+        </div>
+
+        <!-- Sunrise -->
+        <div class="bg-slate-900 text-white p-5 rounded-2xl">
+            <p class="text-slate-400">
+                <i class="fa-solid fa-sun text-yellow-400 mr-2"></i>
+                Sunrise
+            </p>
+            <h2 id="sunrise" class="text-lg font-bold mt-2">--</h2>
+        </div>
+
+        <!-- Sunset -->
+<div class="bg-slate-900 text-white p-5 rounded-2xl">
+                <p class="text-slate-400">
+                <i class="fa-solid fa-cloud-sun text-orange-400 mr-2"></i>
+                Sunset
+            </p>
+            <h2 id="sunset" class="text-lg font-bold mt-2">--</h2>
+        </div>
+
+        <!-- Max Temp -->
+<div class="bg-slate-900 text-white p-5 rounded-2xl">
+                <p class="text-slate-400">
+                <i class="fa-solid fa-temperature-high text-red-400 mr-2"></i>
+                Max Temp
+            </p>
+            <h2 id="maxTemp" class="text-2xl font-bold mt-2">--</h2>
+        </div>
+
+        <!-- Min Temp -->
+            <div class="bg-slate-900 text-white p-5 rounded-2xl">
+                <p class="text-slate-400">
+                <i class="fa-solid fa-temperature-low text-blue-400 mr-2"></i>
+                Min Temp
+            </p>
+            <h2 id="minTemp" class="text-2xl font-bold mt-2">--</h2>
+        </div>
+
+    </div>
+
+</div>
+    </div>
+
+    <!-- Hourly Forecast -->
+    <h2 class="text-3xl font-bold mt-10 mb-5">
+        Hourly Forecast
+    </h2>
+
+    <div
+        id="hourlyForecast"
+        class="flex gap-4 overflow-x-auto pb-4"
+    >
+    </div>
+
+    <!-- 5 Day Forecast -->
+    <h2 class="text-3xl font-bold mt-10 mb-5">
+        5 Day Forecast
+    </h2>
+
+    <div
+        id="forecast"
+        class="grid md:grid-cols-3 lg:grid-cols-5 gap-5"
+    >
+    </div>
+
+</div>
+
+<script src="script.js"></script>
+<script src="keys.js"></script>
+
+</body>
+</html>
